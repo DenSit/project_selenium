@@ -20,8 +20,11 @@ class ProductPageLocators():
 
     BASKET_LINK = (By.CSS_SELECTOR, ".btn-add-to-basket")
     BOOK_NAME = (By.CSS_SELECTOR, ".product_main h1")
-    BOOK_NAME_IN_BASKET = (By.CSS_SELECTOR, ".alertinner>strong") 
+    BOOK_NAME_IN_BASKET = (By.CSS_SELECTOR, "#messages>div:nth-child(1) strong") 
     BOOK_PRICE = (By.CSS_SELECTOR, ".product_main p.price_color")
-    BOOK_PRICE_IN_BASKET = (By.CSS_SELECTOR, ".basket-mini")
-    
-    
+    BOOK_PRICE_IN_BASKET = (By.CSS_SELECTOR, "#messages>div:nth-child(3) strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages>div:nth-child(1)")
+
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
