@@ -1,9 +1,11 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
 from .locators import MainPageLocators
+import time
 
 
 class LoginPage(BasePage):
+
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()
@@ -25,3 +27,15 @@ class LoginPage(BasePage):
         assert self.is_element_present(*LoginPageLocators.REGISTER_PASSWORD1), "Register password1 is not presented"
         assert self.is_element_present(*LoginPageLocators.REGISTER_PASSWORD2), "Register password2 is not presented"
         assert self.is_element_present(*LoginPageLocators.REGISTER_BUTTON), "Register button is not presented"
+        
+    def register_new_user(self, email, password):
+        mail_place = self.browser.find_element(*LoginPageLocators.REGISTER_MAIL)
+        mail_place.send_keys(email)
+        password1_place = self.browser.find_element(*LoginPageLocators.REGISTER_PASSWORD1)
+        password1_place.send_keys(password)
+        password2_place = self.browser.find_element(*LoginPageLocators.REGISTER_PASSWORD2)
+        password2_place.send_keys(password)       
+        button = self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON)
+        button.click()
+        
+        
